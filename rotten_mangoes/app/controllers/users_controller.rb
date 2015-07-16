@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
     if @user.save
       redirect_to movies_path
+      session[:user_id] = @user.id # auto log in
     else
       render :new
     end
@@ -18,5 +19,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:email, :firstname, :lastname, :password, :password_confirmation)
   end
-  
+
 end
