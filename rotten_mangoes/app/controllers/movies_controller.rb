@@ -1,4 +1,19 @@
 class MoviesController < ApplicationController
+
+  def home
+    @opening_this_week = Movie.where(release_date: Date.today..(Date.today + 7)).order(release_date: :asc)
+
+    @best_of_monthly = Movie.where(release_date: (Date.today - 1.month)..Date.today).sort_by{|movie| movie.review_average}.reverse!
+    @best_of_monthly = @best_of_monthly[0,4]
+    # TODO Why not limit(2)?
+
+    @best_of_yearly = Movie.where(release_date: (Date.today - 1.month)..Date.today).sort_by{|movie| movie.review_average}.reverse!
+    @best_of_yearly = @best_of_yearly[0,4]
+    
+    @best_of_forever = Movie.all.sort_by{|movie| movie.review_average}.reverse!
+    @best_of_forever = @best_of_forever[0,4]
+  end
+
   def index
     @movies = Movie.all
   end
