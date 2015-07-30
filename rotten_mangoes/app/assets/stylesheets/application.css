@@ -63,6 +63,11 @@ body > .container {
   font-size: 16px;
 }
 
+.input-group {
+  padding-top: 8px;
+}
+/*TODO background none on search button*/
+
 /*TODO: Clear rows / column wrapping*/
 /*.col-md-3:nth-child(4n+1) {
   clear: both;
