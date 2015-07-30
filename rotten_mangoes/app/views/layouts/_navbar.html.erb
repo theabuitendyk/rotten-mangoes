@@ -10,22 +10,31 @@
       <a class="navbar-brand navbar-logo" href="#"><%= image_tag("mango.png", width: "40")%>Rotten Mangoes</a>
     </div>
     <div id="navbar" class="collapse navbar-collapse">
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search for...">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+          </span>
+        </div><!-- /input-group -->
+      </div><!-- /.col-lg-6 -->
       <ul class="nav navbar-nav">
-        <li><a href="#">HOME</a></li>
-        <li><a href="#about">ABOUT</a></li>
-        <li><a href="#contact">CONTACT</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">DROPDOWN <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li class="dropdown-header">Nav header</li>
-            <li><a href="#">Separated link</a></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
+        <li class="active"><a href="#">HOME<span class="sr-only">(current)</span></a></li>
+        <li><a href="#">MOVIES</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.full_name %><span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <!-- TODO Link to profile show -->
+              <li>Profile</li>
+              <li><%= link_to "Log out", session_path("current"), method: :delete %></li>
+            </ul>
+          </li>
+        <% else %>
+          <%= link_to "Log In", new_session_path %> | <%= link_to "Sign Up", new_user_path %>
+        <% end %>
       </ul>
     </div><!--/.nav-collapse -->
   </div>
