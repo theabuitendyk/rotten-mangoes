@@ -11,39 +11,9 @@
  *= require_self
  *= require_tree .
  */
-body {
-  background: url(mango-pattern.png) repeat fixed;
-}
 
 body > .container {
   padding-top: 60px;
-  background-color: white;
-  border-left: 1px solid rgba(0,0,0,0.3);
-  border-right: 1px solid rgba(0,0,0,0.3);
-}
-
-@media(min-width: 1200px) {
-  body > .container {
-    width: 992px;
-  }
-
-  nav > .container {
-    width: 992px;
-  }
-
-  footer > .container {
-    width: 992px;
-  }
-}
-
-@media(max-width: 768px) {
-  body > .container {
-    background-color: rgb(190, 201, 185);
-  }
-}
-
-body > .navbar-default {
-  border: none;
 }
 
 .footer {
@@ -74,7 +44,7 @@ body > .navbar-default {
 
 .navbar-mangoes.navbar-default {
   background-image: none;
-  background-color: rgb(53, 134, 0);
+  background-color: rgb(99, 147, 22);
 }
 
 .navbar-default a.navbar-brand {
@@ -91,7 +61,6 @@ body > .navbar-default {
   color: black;
   font-family: 'Source Sans Pro';
   font-size: 16px;
-  text-shadow: none;
 }
 
 .input-group {
