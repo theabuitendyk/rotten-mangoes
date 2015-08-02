@@ -106,3 +106,7 @@ body > .navbar-default {
 /*.col-md-3:nth-child(4n+1) {
   clear: both;
 }*/
+
+.search-full-hidden {
+  display: none;
+}
