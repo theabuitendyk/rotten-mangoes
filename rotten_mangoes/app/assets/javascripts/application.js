@@ -14,3 +14,11 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+// $(document).ready(function() {
+
+//   $('.search-icon').click(function() {
+//     $('.search-full').removeClass('search-full-hidden');
+//     $('.search-icon').hide();
+//   })
+// })
