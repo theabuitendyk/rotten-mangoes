@@ -1,10 +1,36 @@
-<%= link_to "Back to all movies", movies_path %><br/>
-
-<%= link_to image_tag(@movie.poster_image_url), movie_path(@movie) %>
-<h2><%= @movie.title %> (<%= link_to "edit", edit_movie_path(@movie) %>, <%= link_to "delete", movie_path(@movie), method: :delete, confirm: "You sure?" %>) | <%= @movie.review_average %>/10</h2>
-<h3><%= formatted_date(@movie.release_date) %></h3>
-<h4>Dir. <%= @movie.director %> | <%= @movie.runtime_in_minutes %> minutes</h4>
-<p><%= @movie.description %></p>
+<div class="row">
+  <div class="col-md-4 col-sm-4 col-xs-12">
+    <div class="col-xs-12">
+      <%= link_to image_tag(@movie.poster_image_url, width: "214"), movie_path(@movie) %>
+    </div>
+    <div class="col-sm-12 col-xs-12">
+      <h2 class="text-uppercase visible-xs"><%= @movie.title %></h2>
+      <small class="visible-xs">(<%= link_to "edit", edit_movie_path(@movie) %>, <%= link_to "delete", movie_path(@movie), method: :delete, confirm: "You sure?" %>)</small>
+      <div class="progress show-progress">
+        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%= @movie.review_average %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= @movie.review_average %>%;">
+          <%= @movie.review_average %>%
+        </div>
+      </div>
+      <dl class="dl-horizontal show-dl">
+        <dt>Total Reviews</dt>
+        <dd><%= @movie.total_reviews %></dd>
+        <dt>Fresh</dt>
+        <dd><%= @movie.fresh_reviews %></dd>
+        <dt>Rotten</dt>
+        <dd><%= @movie.rotten_reviews %></dd>
+      </dl>
+    </div>
+  </div>
+  <div class="col-md-8 col-sm-8 col-xs-12">
+    <h2 class="text-uppercase hidden-xs"><%= @movie.title %></h2>
+    <small class="hidden-xs">(<%= link_to "edit", edit_movie_path(@movie) %>, <%= link_to "delete", movie_path(@movie), method: :delete, confirm: "You sure?" %>)</small>
+    <h4>Release Date <%= long_formatted_date(@movie.release_date) %></h4>
+    <h4>Directed by <%= @movie.director %></h4>
+    <h4>Runtime <%= @movie.runtime_in_minutes %> minutes</h4>
+    <h4>Movie Info</h4>
+    <p><%= @movie.description %></p>
+  </div>
+</div>
 
 <hr>
 

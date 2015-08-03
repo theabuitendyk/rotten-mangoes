@@ -14,8 +14,20 @@ class Movie < ActiveRecord::Base
     if reviews.size == 0
       return 0
     else
-      reviews.sum(:rating_out_of_ten)/reviews.size
+      (reviews.sum(:rating_out_of_ten)/reviews.size)*10
     end
+  end
+
+  def total_reviews
+    reviews.count
+  end
+
+  def fresh_reviews
+    reviews.where('rating_out_of_ten >= ?', 5).count
+  end
+
+  def rotten_reviews
+    reviews.where('rating_out_of_ten < ?', 5).count
   end
 
   protected

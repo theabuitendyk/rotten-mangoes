@@ -1,16 +1,22 @@
 <%= link_to "Submit a movie!", new_movie_path %>
 <hr>
-<h1>Opening This Week</h1>
+<h1>Opening Soon</h1>
 <!-- TODO make slider -->
 <div class="slide-container">
   <div class="row">
-    <% @opening_this_week.each do |movie| %>
-      <div class="col-md-3 col-sm-4 col-xs-6">
-        <%= link_to image_tag(movie.poster_image_url), movie_path(movie) %>
-        <h2><%= link_to movie.title, movie_path(movie) %> | <%= movie.review_average %>/10</h2>
-        <h3><%= formatted_date(movie.release_date) %></h3>
-        <h4>Dir. <%= movie.director %> | <%= movie.runtime_in_minutes %> minutes</h4>
-        <p><%= movie.description %></p>
+    <% @opening_soon.each do |movie| %>
+      <div class="col-md-3 col-sm-4 col-xs-6 movie-thumb">
+        <%= link_to image_tag(movie.poster_image_url, height: "190"), movie_path(movie) %>
+        <h3><%= link_to movie.title, movie_path(movie) %></h3>
+        <p>
+          <% if movie.review_average >= 50 %>
+            <%= image_tag("black-border.png", width: "20")%>
+          <% else %>
+            <%= image_tag("splatter.png", width: "20")%>
+          <% end %>
+          <%= movie.review_average %>%
+        </p>
+        <p>In Theaters <%= formatted_date(movie.release_date) %></p>
       </div>
     <% end %>
   </div>
@@ -31,12 +37,18 @@
 </div>
 <div class="row">
   <% @best_of_monthly.each do |movie| %>
-    <div class="col-md-3 col-sm-4 col-xs-6">
-      <%= link_to image_tag(movie.poster_image_url), movie_path(movie) %>
-      <h2><%= link_to movie.title, movie_path(movie) %> | <%= movie.review_average %>/10</h2>
-      <h3><%= formatted_date(movie.release_date) %></h3>
-      <h4>Dir. <%= movie.director %> | <%= movie.runtime_in_minutes %> minutes</h4>
-      <p><%= movie.description %></p>
+    <div class="col-md-3 col-sm-4 col-xs-6 movie-thumb">
+      <%= link_to image_tag(movie.poster_image_url, height: "190"), movie_path(movie) %>
+      <h3><%= link_to movie.title, movie_path(movie) %></h3>
+      <p>
+        <% if movie.review_average >= 50 %>
+          <%= image_tag("black-border.png", width: "20")%>
+        <% else %>
+          <%= image_tag("splatter.png", width: "20")%>
+        <% end %>
+        <%= movie.review_average %>%
+      </p>
+      <p>In Theaters <%= formatted_date(movie.release_date) %></p>
     </div>
   <% end %>
 </div>

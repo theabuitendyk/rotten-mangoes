@@ -21,7 +21,7 @@
 </head>
 <body>
   <%= render 'layouts/navbar' %>
-  <div class="container body-container">
+  <div class="container body-container <%= 'show-container' if @show %>">
     <% flash.each do |key, value| %>
       <%= content_tag(:div, value) %>
     <% end %>
