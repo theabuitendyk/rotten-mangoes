@@ -1,13 +1,13 @@
 <%= link_to "Submit a movie!", new_movie_path %>
 <hr>
-<h1>Opening Soon</h1>
+<h3>OPENING SOON</h3>
 <!-- TODO make slider -->
 <div class="slide-container">
   <div class="row">
     <% @opening_soon.each do |movie| %>
       <div class="col-md-3 col-sm-4 col-xs-6 movie-thumb">
         <%= link_to image_tag(movie.poster_image_url, height: "190"), movie_path(movie) %>
-        <h3><%= link_to movie.title, movie_path(movie) %></h3>
+        <h4><%= link_to movie.title, movie_path(movie) %></h4>
         <p>
           <% if movie.review_average >= 50 %>
             <%= image_tag("black-border.png", width: "20")%>
@@ -22,7 +22,7 @@
   </div>
 </div>
 
-<h1 class="title-toggle">Best of Rotten Mangoes</h1>
+<h3 class="title-toggle">BEST OF ROTTEN MANGOES</h3>
 <div class="btn-group">
   <button type="button" class="btn btn-default">Monthly</button>
   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -39,7 +39,7 @@
   <% @best_of_monthly.each do |movie| %>
     <div class="col-md-3 col-sm-4 col-xs-6 movie-thumb">
       <%= link_to image_tag(movie.poster_image_url, height: "190"), movie_path(movie) %>
-      <h3><%= link_to movie.title, movie_path(movie) %></h3>
+      <h4><%= link_to movie.title, movie_path(movie) %></h4>
       <p>
         <% if movie.review_average >= 50 %>
           <%= image_tag("black-border.png", width: "20")%>
