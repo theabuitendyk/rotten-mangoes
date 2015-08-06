@@ -4,9 +4,9 @@
   <% @movies.each do |movie| %>
     <div class="col-md-3 col-sm-4 col-xs-6 movie-thumb">
       <%= link_to image_tag(movie.poster_image_url, height: "190"), movie_path(movie) %>
-      <h4><%= link_to movie.title, movie_path(movie) %></h4>
+      <p><%= link_to movie.title, movie_path(movie) %><p>
       <p>
-        <% if movie.review_average >= 50 %>
+        <% if movie.review_average >= 70 %>
           <%= image_tag("black-border.png", width: "20")%>
         <% else %>
           <%= image_tag("splatter.png", width: "20")%>
@@ -14,7 +14,7 @@
         <%= movie.review_average %>%
       </p>
       <% if movie.release_date > Date.today %>
-        <p>In Theaters <%= formatted_date(movie.release_date) %></p>
+        <small class="text-muted">In Theaters <%= formatted_date(movie.release_date) %></small>
       <% end %>
     </div>
   <% end %>
