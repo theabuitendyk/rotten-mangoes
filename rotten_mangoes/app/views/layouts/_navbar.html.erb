@@ -21,21 +21,22 @@
         </div><!-- /input-group -->
       </div><!-- /.col-lg-6 -->
       <ul class="nav navbar-nav">
-        <li><a href="#">HOME</a></li>
-        <li><a href="#about">MOVIES</a></li>
+        <li><%= link_to "HOME", root_path %></li>
+        <li><%= link_to "MOVIES", movies_path %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.full_name %><span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= image_tag(current_user.image, width: "20")%> <%= current_user.name.split.first %><span class="caret"></span></a>
             <ul class="dropdown-menu">
               <!-- TODO Link to profile show -->
               <li>Profile</li>
-              <li><%= link_to "Log out", session_path("current"), method: :delete %></li>
+              <li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
             </ul>
           </li>
         <% else %>
-          <%= link_to "Log In", new_session_path %> | <%= link_to "Sign Up", new_user_path %>
+          <li><%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %></li>
+          <!-- <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="false"></div> -->
         <% end %>
       </ul>
     </div><!--/.nav-collapse -->

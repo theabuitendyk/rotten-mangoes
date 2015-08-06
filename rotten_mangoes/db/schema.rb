@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150716194019) do
+ActiveRecord::Schema.define(version: 20150806064439) do
 
   create_table "movies", force: true do |t|
     t.string   "title"
@@ -37,12 +37,14 @@ ActiveRecord::Schema.define(version: 20150716194019) do
   add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
 
   create_table "users", force: true do |t|
-    t.string   "email"
-    t.string   "password_digest"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "firstname"
-    t.string   "lastname"
+    t.string   "image"
   end
 
 end

@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
 
   def home
-    @opening_this_week = Movie.where(release_date: Date.today..(Date.today + 7)).order(release_date: :asc)
+    @opening_soon = Movie.where('release_date > ?', Date.today).order(release_date: :asc).limit(4)
 
     @best_of_monthly = Movie.where(release_date: (Date.today - 1.month)..Date.today).sort_by{|movie| movie.review_average}.reverse!
     @best_of_monthly = @best_of_monthly[0,4]
@@ -15,11 +15,12 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @movies = Movie.all
+    @movies = Movie.order(:title)
   end
 
   def show
     @movie = Movie.find(params[:id])
+    @show = true
   end
 
   def new

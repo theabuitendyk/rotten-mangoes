@@ -2,12 +2,20 @@
 <hr>
 <div class="row">
   <% @movies.each do |movie| %>
-    <div class="col-md-3 col-sm-4 col-xs-6">
-      <%= link_to image_tag(movie.poster_image_url), movie_path(movie) %>
-      <h2><%= link_to movie.title, movie_path(movie) %> | <%= movie.review_average %>/10</h2>
-      <h3><%= formatted_date(movie.release_date) %></h3>
-      <h4>Dir. <%= movie.director %> | <%= movie.runtime_in_minutes %> minutes</h4>
-      <p><%= movie.description %></p>
+    <div class="col-md-3 col-sm-4 col-xs-6 movie-thumb">
+      <%= link_to image_tag(movie.poster_image_url, height: "190"), movie_path(movie) %>
+      <p><%= link_to movie.title, movie_path(movie) %><p>
+      <p>
+        <% if movie.review_average >= 70 %>
+          <%= image_tag("black-border.png", width: "20")%>
+        <% else %>
+          <%= image_tag("splatter.png", width: "20")%>
+        <% end %>
+        <%= movie.review_average %>%
+      </p>
+      <% if movie.release_date > Date.today %>
+        <small class="text-muted">In Theaters <%= formatted_date(movie.release_date) %></small>
+      <% end %>
     </div>
   <% end %>
 </div>
