@@ -2,7 +2,7 @@
 
 My first Ruby on Rails project.
 
-Some may say Rotten Mangoes has similarities to Rotten Tomatoes. Users are about to add/edit, browse and rate movies.
+Some may say Rotten Mangoes has similarities to Rotten Tomatoes. Users are able to add/edit, browse and rate movies.
 
 Built With
 * Ruby on Rails
