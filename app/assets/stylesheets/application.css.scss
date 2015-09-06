@@ -1,0 +1,53 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+body {
+  background: url(mango-pattern.png) repeat fixed;
+
+  .show-container {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  > .container {
+    padding-top: 60px;
+    background-color: rgb(255,255,255);
+    border-left: 1px solid rgba(0,0,0,0.3);
+    border-right: 1px solid rgba(0,0,0,0.3);
+  }
+
+  > .navbar-default {
+    border: none;
+  }
+}
+
+@media(min-width: 1200px) {
+  body > .container {
+    width: 992px;
+  }
+
+  nav > .container {
+    width: 992px;
+  }
+
+  footer > .container {
+    width: 992px;
+  }
+}
+
+@media(max-width: 768px) {
+  body > .container {
+    background-color: rgb(190, 201, 185);
+  }
+}

@@ -1,0 +1,40 @@
+.navbar-logo.navbar-brand {
+  padding-top: 6px;
+  padding-left: 15px;
+  font-family: 'Galindo';
+
+  > img {
+    display: inline;
+    margin-right: 10px;
+  }
+}
+
+.navbar-mangoes.navbar-default {
+  background-image: none;
+  background-color: #3A9425;
+}
+
+.navbar-default a.navbar-brand {
+  color: rgb(240, 236, 0);
+  text-shadow: 
+    -2px -2px 0 #000,  
+    2px -2px 0 #000,
+    -3px 3px 0 #000,
+    2px 2px 0 #000;
+  font-size: 175%;
+}
+
+.navbar-default ul.navbar-nav>li>a {
+  color: white;
+  font-family: 'Source Sans Pro';
+  font-size: 16px;
+  text-shadow: none;
+}
+
+.input-group {
+  padding-top: 8px;
+}
+
+.search-full-hidden {
+  display: none;
+}

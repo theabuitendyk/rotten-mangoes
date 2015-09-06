@@ -1,0 +1,44 @@
+<%= link_to "Submit a movie!", new_movie_path %>
+
+<div class="home-title">
+  <h4>OPENING SOON</h4>
+</div>
+
+<div class="row">
+  <% @opening_soon.each do |movie| %>
+    <div class="col-md-3 col-sm-3 col-xs-6 movie-thumb">
+      <%= link_to image_tag(movie.poster_image_url, height: "190"), movie_path(movie) %>
+      <p><%= link_to movie.title, movie_path(movie) %></p>
+      <p>
+        <% if movie.review_average >= 50 %>
+          <%= image_tag("black-border.png", width: "20")%>
+        <% else %>
+          <%= image_tag("splatter.png", width: "20")%>
+        <% end %>
+        <%= movie.review_average %>%
+      </p>
+      <small class="text-muted">In Theaters <%= formatted_date(movie.release_date) %></small>
+    </div>
+  <% end %>
+</div>
+
+<div class="home-title">
+  <h4>BEST OF ROTTEN MANGOES</h4>
+</div>
+<div class="row">
+  <% @best_of_forever.each do |movie| %>
+    <div class="col-md-3 col-sm-3 col-xs-6 movie-thumb">
+      <%= link_to image_tag(movie.poster_image_url, height: "190"), movie_path(movie) %>
+      <p><%= link_to movie.title, movie_path(movie) %></p>
+      <p>
+        <% if movie.review_average >= 50 %>
+          <%= image_tag("black-border.png", width: "20")%>
+        <% else %>
+          <%= image_tag("splatter.png", width: "20")%>
+        <% end %>
+        <%= movie.review_average %>%
+      </p>
+      <small class="text-muted">In Theaters <%= formatted_date(movie.release_date) %></small>
+    </div>
+  <% end %>
+</div>
